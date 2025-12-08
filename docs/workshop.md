@@ -508,6 +508,33 @@ The final `main.py` file can be found in `solution/lab_6.py`.
 
 ## Add your own knowledge base with RAG
 
+You now have a complete helpdesk solution with multiple agents working together to handle user requests. However, the GitHubAgent is doing some ticketing without really knowing your company's conventions and best practices. To improve this, you will add another source of knowledge using Retrieval-Augmented Generation (RAG) with Azure AI Search.
+
+Let's create an index of data using the provided script `docs_indexer.py` inside the `data` folder. This script will read all the files inside the `data/docs` folder and index them into your Azure AI Search service. This will be used as a knowledge base for the GitHubAgent.
+
+First, make sure to set the `AZURE_AI_SEARCH_ENDPOINT` environment variables in your `.env` file with the values from your deployed infrastructure.
+
+Then, run the indexer script:
+
+```bash
+python data/docs_indexer.py
+```
+
+Now, let's modify the GitHubAgent to use this knowledge base when answering user requests. Inside the creation of the GitHubAgent, add the following code to create a retriever using Azure AI Search:
+
+```python
+TODO
+```
+
+Then, pass this retriever to the GitHubAgent:
+
+```python
+TODO
+```
+
+You can run the flow again, and now the GitHubAgent will use the knowledge base to provide more accurate and relevant answers based on your company's documentation.
+
+
 ---
 
 ## Add observability with OpenTelemetry
