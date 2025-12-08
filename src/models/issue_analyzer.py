@@ -13,3 +13,4 @@ class IssueAnalyzer(BaseModel):
     description: str | None = None
     reason: str | None = None
     complexity: Complexity | None = None
+    time_estimate_hours: str | None = None
