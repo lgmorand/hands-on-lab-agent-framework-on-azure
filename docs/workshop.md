@@ -468,9 +468,9 @@ The final `main.py` file can be found in `solutions/lab_5.py`.
 
 ## Orchestrate with a sequencial workflow
 
-Let's go a step further and add one more agent in the picture. You will add an MSLearnAgent that will provide relevant documentation from Microsoft Learn to help the agents answer user requests. This agent will use the MCP Learn tool.
+Let's go a step further and add one more agent in the picture. You will add an DocsAgent that will provide relevant documentation from Microsoft Learn to help the agents answer user requests. This agent will use the MCP Learn tool.
 
-First, create the MSLearnAgent inside the `main.py` file. Just after the creation of the GitHubAgent, add the following code:
+First, create the DocsAgent inside the `main.py` file. Just after the creation of the GitHubAgent, add the following code:
 
 ```python
 TODO
@@ -478,7 +478,7 @@ TODO
 
 As you can see, you dynamically load the MCP Learn tool, without authentication for this one, as it's totally open, and create the agent using this tool.
 
-Then, let's create a sequential workflow that will first, call the MSLearnAgent and then the group of agents containing the IssueAnalyzerAgent and the GitHubAgent.
+Then, let's create a sequential workflow that will first, call the DocsAgent and then the group of agents containing the IssueAnalyzerAgent and the GitHubAgent.
 
 Let's first transform the workflow containing the IssueAnalyzerAgent and the GitHubAgent into an agent so it can be called inside another workflow.
 
