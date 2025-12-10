@@ -18,7 +18,6 @@
         "humao.rest-client",
         "ms-python.vscode-pylance",
         "charliermarsh.ruff",
-        "ms-python.bandit",
         "ms-python.debugpy",
         "hashicorp.terraform"
       ],

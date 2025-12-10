@@ -135,6 +135,17 @@ The following tools and access will be necessary to run the lab on a local envir
 - [UV package manager][download-uv] installed on your machine
 - [Terraform][download-terraform] installed on your machine
 
+Visual Studio Code Extensions to install :
+
+- [ms-python.python][ms-python-extension]
+- [github.copilot][github-copilot-extension]
+- [github.copilot-chat][github-copilot-chat-extension]
+- [humao.rest-client][humao-rest-client-extension]
+- [ms-python.vscode-pylance][ms-python-vscode-pylance-extension]
+- [charliermarsh.ruff][charliermarsh-ruff-extension]
+- [ms-python.debugpy][ms-python-debugpy-extension]
+- [hashicorp.terraform][hashicorp-terraform-extension]
+
 Once you have set up your local environment, you can clone the repository you just forked on your machine, and open the local folder in Visual Studio Code and head to the next step. 
 
 ### Sign in to Azure
@@ -184,6 +195,15 @@ terraform apply -auto-approve
 
 The deployment should take around 5 minutes to complete.
 
+[ms-python-extension]: https://marketplace.visualstudio.com/items?itemName=ms-python.python
+[github-copilot-extension]: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+[github-copilot-chat-extension]: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat
+[humao-rest-client-extension]: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+[ms-python-vscode-pylance-extension]: https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance
+[charliermarsh-ruff-extension]: https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff
+[ms-python-bandit-extension]: https://marketplace.visualstudio.com/items?itemName=ms-python.bandit
+[ms-python-debugpy-extension]: https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy
+[hashicorp-terraform-extension]: https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform
 [az-cli-install]: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 [az-portal]: https://portal.azure.com
 [vs-code]: https://code.visualstudio.com/
