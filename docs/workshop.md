@@ -947,7 +947,7 @@ Now, let's modify the GitHubAgent to use this knowledge base when answering user
 First, import the necessary classes at the top of the file:
 
 ```python
-from agent_framework import HostedFileSearchTool
+from agent_framework import HostedFileSearchTool, HostedVectorStoreContent
 ```
 
 Then, update the GitHubAgent creation with the `HostedFileSearchTool` and `tool_choice` parameter:
