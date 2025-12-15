@@ -791,7 +791,7 @@ from agent_framework import GroupChatBuilder
 Just after the creation of the GitHubAgent, add the following code:
 
 ```python
-group_workflow = (
+group_workflow_agent = (
     GroupChatBuilder()
     .set_manager(
         manager=AzureAIAgentClient(**settings).create_agent(
@@ -884,6 +884,11 @@ workflow = (
     .build()
 )
 ```
+
+Add the calling of the sequential in the header 
+````python
+from agent_framework import SequentialBuilder
+````
 
 Update the Dev UI setup to run the sequential workflow instead of the group chat workflow:
 
