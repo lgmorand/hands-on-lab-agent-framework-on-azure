@@ -862,7 +862,7 @@ ms_learn_agent = AzureAIAgentClient(**settings).create_agent(
 If you want to test it individually, you can update the Dev UI integration:
 
 ```python
-serve(entities=[issue_analyzer_agent, github_agent, ms_learn_agent, group_workflow_agent], port=8090, auto_open=True, tracing_enabled=True)
+serve(entities=[issue_analyzer_agent, github_agent, ms_learn_agent, group_workflow], port=8090, auto_open=True, tracing_enabled=True)
 ```
 
 As you can see, you dynamically load the MCP Learn tool, without authentication for this one, as it's totally open, and create the agent using this tool.
