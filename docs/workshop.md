@@ -320,7 +320,9 @@ Inside the `src` folder, you will find at root the `pyproject.toml` file that de
 ```bash
 cd src
 # Install dependencies
-uv sync
+#add venv env
+uv venv .venv
+uv sync --active
 # Activate the virtual environment
 source .venv/bin/activate
 ```
@@ -415,7 +417,7 @@ Now if you run your agent again:
 </div>
 
 ```bash
-uv run python main.py
+uv run --active python main.py
 ```
 
 Let's run the agent with a simple prompt to analyze a first ask:
@@ -504,7 +506,7 @@ from models.issue_analyzer import IssueAnalyzer
 You can now run your agent again:
 
 ```bash
-uv run python main.py
+uv run --active python main.py
 ```
 
 
@@ -603,7 +605,7 @@ instructions="""
 Now, run your agent again:
 
 ```bash
-uv run python main.py
+uv run --active python main.py
 ```
 
 <div class="tip" data-title="Tip: stop an old run before relaunching">
@@ -759,7 +761,7 @@ serve(entities=[issue_analyzer_agent, github_agent], port=8090, auto_open=True, 
 Now, run your agent again:
 
 ```bash
-uv run python main.py
+uv run --active python main.py
 ```
 
 Select the GitHubAgent in the Dev UI and ask your first question:
@@ -822,7 +824,7 @@ serve(entities=[issue_analyzer_agent, github_agent, group_workflow], port=8090, 
 Now, run your agent again:
 
 ```bash
-uv run python main.py
+uv run --active python main.py
 ```
 
 Select the group chat workflow agent in the Dev UI and ask your first question:
@@ -899,7 +901,7 @@ serve(entities=[issue_analyzer_agent, github_agent, ms_learn_agent, workflow], p
 Finally, run your agent again:
 
 ```bash
-uv run python main.py
+uv run --active python main.py
 ```
 
 Select the sequential workflow agent in the Dev UI and ask your first question:
@@ -1082,5 +1084,6 @@ Congratulations! You have successfully completed this hands-on lab on building a
 - [MCP for Beginners (GitHub)](https://github.com/microsoft/mcp-for-beginners/)
 
 - [MCP overview video (YouTube)](https://www.youtube.com/watch?v=VfZlglOWWZw&t=3s)
+
 
 
