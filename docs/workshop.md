@@ -393,6 +393,14 @@ Let's modify the `main.py` file to add Dev UI integration just after the agent c
 serve(entities=[issue_analyzer_agent], port=8090, auto_open=True, tracing_enabled=True)
 ```
 
+<details>
+<summary><strong>Information (optional): Dev ui </strong></summary>
+
+If you want to discover more about Dev UI, you can follow the official tutorial:
+[Dev UI on Microsoft Learn](https://learn.microsoft.com/en-us/agent-framework/user-guide/devui/?pivots=programming-language-python)
+
+</details>
+
 Now if you run your agent again:
 
 <div class="tip" data-title="Tip">
@@ -428,31 +436,23 @@ or you can also ask a feature request:
 Please add a dark mode to the application to improve user experience during night time usage.
 ```
 
-Open your browser and go to `http://localhost:8090` to access the Dev UI. You should see your agent listed there. Click on it to open the chat interface.
+Open your browser and go to `http://localhost:8090` to access the Dev UI. You should see your agent listed there (in the dropdown list at the top of your screen). Click on it to open the chat interface.
 
 [![issue_agent_tool_devui_start.png](./assets/issue_agent_tool_devui_start.png)](./assets/issue_agent_tool_devui_start.png)
 
-If you try to run the agent multiple times, you might hit the rate limit of tokens per minute. If that happens, you will see a 429 error. Just wait a minute and try again.
+If you try to run the agent multiple times, you might hit the rate limit of tokens per minute. If that happens, you will see a 429 error. Just wait a minute or two and try again.
 
 Also, if you look at the output, the response is always different because the model is generative and non-deterministic by default, but you ask the model to structure the output in a specific format. That's what you will do in the next step.
 
 > The final `main.py` file can be found in `solutions/lab_1.py`.
 
-<details>
-<summary><strong>Information (optional): Dev ui </strong></summary>
-
-If you want to discover more about Dev UI, you can follow the official tutorial:
-[Dev UI on Microsoft Learn](https://learn.microsoft.com/en-us/agent-framework/user-guide/devui/?pivots=programming-language-python)
-
-</details>
-
 ---
 
 ## Add response format
 
-Let's structure the output of your agent to make it more useful.
+Let's structure the output of your agent to make it more useful and more programmatic.
 
-To make sure the IssueAnalyzerAgent provide the same structure every time, let's define a response format using a basic python class.
+To make sure the *IssueAnalyzerAgent* provide the same structure every time, let's define a response format using a basic python class.
 
 Inside the `src` folder, create a new folder called `models` and inside this folder create a new file called `issue_analyzer.py`.
 
@@ -477,7 +477,7 @@ class IssueAnalyzer(BaseModel):
 
 As you can see, the `IssueAnalyzer` class defines multiple fields that the agent will fill when answering a prompt.
 
-Now, let's modify the `main.py` file to use this response format. Inside the creation of the agent, add the `response_format` parameter:
+Now, let's modify the `main.py` file to use this response format. Inside the creation of the agent (just after you gave its instructions), add the `response_format` parameter:
 
 ```python
 response_format=IssueAnalyzer
@@ -494,6 +494,20 @@ You can now run your agent again:
 ```bash
 uv run python main.py
 ```
+
+<div class="tip" data-title="Tip: stop an old run before relaunching">
+
+> If you already ran `uv run python main.py`, Dev UI may still be running in another terminal.
+> Stop it with `Ctrl+C`, then run the command again.
+>
+> If the port is still busy, find and kill the process using port `8090`:
+>
+> ```bash
+> lsof -i :8090
+> kill <pid>
+> ```
+
+</div>
 
 You should notice that the output is now structured according to the `IssueAnalyzer` class you defined.
 
@@ -593,20 +607,6 @@ Now, run your agent again:
 uv run python main.py
 ```
 
-<div class="tip" data-title="Tip: stop an old run before relaunching">
-
-> If you already ran `uv run python main.py`, Dev UI may still be running in another terminal.
-> Stop it with `Ctrl+C`, then run the command again.
->
-> If the port is still busy, find and kill the process using port `8090`:
->
-> ```bash
-> lsof -i :8090
-> kill <pid>
-> ```
-
-</div>
-
 <div class="task" data-title="Try it: test the agent within its scope">
 
 > In Dev UI, select **IssueAnalyzerAgent** and try one of the prompts below.
@@ -643,7 +643,7 @@ As you can see in the `Tools` tab of Dev UI, the agent used the `calculate_time_
 
 [![devui-tools-tab](./assets/issue_agent_tool_devui.png)](./assets/issue_agent_tool_devui.png)
 
-Your IssueAnalyzerAgent is now more precise and reliable!
+Your *IssueAnalyzerAgent* is now more precise and reliable!
 
 > The final `main.py` file can be found in `solutions/lab_3.py`.
 
@@ -749,7 +749,7 @@ Now, run your agent again:
 uv run python main.py
 ```
 
-Select the GitHubAgent in the Dev UI and ask your first question:
+Select the *GitHubAgent* in the Dev UI and ask your first question:
 
 [![select-menu-devui](./assets/devui_select_menu.png)](./assets/devui_select_menu.png)
 
@@ -761,7 +761,7 @@ If you ask the agent to create an issue about any kind of problem, it should cre
 
 ## Create a group chat workflow
 
-You have now two agents: the IssueAnalyzerAgent to analyze issues and the GitHubAgent to create tickets in GitHub. To build a complete helpdesk solution, you need to orchestrate these two agents to work together in a group chat.
+You have now two agents: the *IssueAnalyzerAgent* to analyze issues and the *GitHubAgent* to create tickets in GitHub. To build a complete helpdesk solution, you need to orchestrate these two agents to work together in a group chat.
 
 To do that you will use a mechanism called Group Chat Workflow provided by the Agent Framework.
 
